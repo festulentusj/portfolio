@@ -326,25 +326,14 @@ header.nav.scrolled{
 .btn-primary:hover{ box-shadow:0 0 0 6px rgba(204,255,26,.15); }
 .btn-primary:hover .arrow{ transform:translateX(5px); }
 
-.btn-reel{
-  display:inline-flex; align-items:center; gap:14px; font-family:var(--mono);
-  font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--paper);
-}
-.btn-reel .play{
-  width:54px; height:54px; border-radius:50%; border:1px solid var(--line);
-  display:grid; place-items:center; transition:.4s var(--ease); position:relative;
-}
-.btn-reel .play::after{ content:""; border-left:11px solid var(--paper); border-top:7px solid transparent; border-bottom:7px solid transparent; margin-left:3px; }
-.btn-reel:hover .play{ border-color:var(--lime); background:rgba(204,255,26,.1); transform:scale(1.06); }
-
 /* ---------- discipline marquee ---------- */
 .marquee{
   border-top:1px solid var(--line); border-bottom:1px solid var(--line);
   padding:20px 0; overflow:hidden; white-space:nowrap; background:var(--ink-2);
 }
-.marquee-track{ display:inline-flex; gap:44px; animation:scroll 38s linear infinite; }
+.marquee-track{ display:inline-flex; animation:scroll 38s linear infinite; }
 .marquee:hover .marquee-track{ animation-play-state:paused; }
-.marquee .item{ font-family:var(--display); font-weight:600; font-size:26px; color:var(--muted); display:inline-flex; align-items:center; gap:44px; text-transform:uppercase; letter-spacing:-.01em; }
+.marquee .item{ font-family:var(--display); font-weight:600; font-size:26px; color:var(--muted); display:inline-flex; align-items:center; gap:44px; margin-right:44px; text-transform:uppercase; letter-spacing:-.01em; }
 .marquee .item::after{ content:"✦"; color:var(--lime); font-size:16px; }
 @keyframes scroll{ to{ transform:translateX(-50%); } }
 
@@ -423,8 +412,8 @@ header.nav.scrolled{
 @keyframes spinR{ to{ transform:rotate(-360deg) } }
 .tw{ animation:tw 3.4s ease-in-out infinite; }
 @keyframes tw{ 0%,100%{ opacity:.25 } 50%{ opacity:1 } }
-.drift{ transform-box:fill-box; animation:drift 9s ease-in-out infinite; }
-@keyframes drift{ 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(18px) } }
+.drift{ transform-box:fill-box; animation:drift-x 9s ease-in-out infinite; }
+@keyframes drift-x{ 0%,100%{ transform:translateX(0) } 50%{ transform:translateX(18px) } }
 @media (prefers-reduced-motion:reduce){ .ember,.glow,.spin-s,.spin-r,.tw,.drift{ animation:none } }
 
 .work .canvas::after{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(transparent 32%, rgba(7,7,11,.82)); }
@@ -438,12 +427,6 @@ header.nav.scrolled{
 .work h3{ font-family:var(--display); font-weight:700; font-size:clamp(24px,2.6vw,34px); letter-spacing:-.02em; line-height:1; }
 .work .sub{ font-size:14px; color:var(--muted); margin-top:8px; display:flex; gap:14px; flex-wrap:wrap; }
 .work .sub span{ display:inline-flex; gap:6px; }
-.work .open{
-  position:absolute; bottom:30px; right:30px; z-index:3; width:46px; height:46px; border-radius:50%;
-  border:1px solid var(--line); display:grid; place-items:center; background:rgba(7,7,11,.4);
-  transition:.4s var(--ease); opacity:0; transform:translateY(8px);
-}
-.work:hover .open{ opacity:1; transform:translateY(0); background:var(--lime); color:var(--ink); border-color:var(--lime); }
 
 /* ============================================================
    STATS
@@ -598,7 +581,6 @@ footer{ border-top:1px solid var(--line); padding:80px 0 40px; }
       <p class="hero-desc reveal">Festulentus is a multidisciplinary motion studio. Every frame is engineered — 2D, 3D, motion graphics, VFX, simulation. No format too simple, no brief too complex.</p>
       <div class="hero-actions reveal d1">
         <a href="#work" class="btn-primary" data-hover><span>See the work</span><span class="arrow">→</span></a>
-        <button class="btn-reel" data-hover><span class="play"></span><span>Showreel<br>2026</span></button>
       </div>
     </div>
   </div>
@@ -726,9 +708,7 @@ footer{ border-top:1px solid var(--line); padding:80px 0 40px; }
         </svg></div>
         <span class="tag">Game Cinematic</span><span class="num">/01</span>
         <h3>Ashfall</h3>
-        <div class="sub"><span>AAA Announce Trailer · Full CG</span><span>Unreal Engine · Houdini</span></div>
-        <div class="open">↗</div>
-      </article>
+        <div class="sub"><span>AAA Announce Trailer · Full CG</span><span>Unreal Engine · Houdini</span></div>      </article>
 
       <article class="work sm reveal d1" data-hover>
         <div class="canvas"><svg viewBox="0 0 600 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -758,9 +738,7 @@ footer{ border-top:1px solid var(--line); padding:80px 0 40px; }
         </svg></div>
         <span class="tag">Character Art</span><span class="num">/02</span>
         <h3>Vanguard</h3>
-        <div class="sub"><span>Hero Rig · Animation Cycle</span></div>
-        <div class="open">↗</div>
-      </article>
+        <div class="sub"><span>Hero Rig · Animation Cycle</span></div>      </article>
 
       <article class="work md reveal" data-hover>
         <div class="canvas"><svg viewBox="0 0 600 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -791,9 +769,7 @@ footer{ border-top:1px solid var(--line); padding:80px 0 40px; }
         </svg></div>
         <span class="tag">Environment Art</span><span class="num">/03</span>
         <h3>Drowned Spire</h3>
-        <div class="sub"><span>World Build · Look-dev</span></div>
-        <div class="open">↗</div>
-      </article>
+        <div class="sub"><span>World Build · Look-dev</span></div>      </article>
 
       <article class="work md reveal d1" data-hover>
         <div class="canvas"><svg viewBox="0 0 600 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -820,9 +796,7 @@ footer{ border-top:1px solid var(--line); padding:80px 0 40px; }
         </svg></div>
         <span class="tag">Concept → Motion</span><span class="num">/04</span>
         <h3>Bioforge</h3>
-        <div class="sub"><span>Concept Design · 2D → 3D</span></div>
-        <div class="open">↗</div>
-      </article>
+        <div class="sub"><span>Concept Design · 2D → 3D</span></div>      </article>
 
       <article class="work lg reveal d1" data-hover>
         <div class="canvas"><svg viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -855,9 +829,7 @@ footer{ border-top:1px solid var(--line); padding:80px 0 40px; }
         </svg></div>
         <span class="tag">Realtime VFX</span><span class="num">/05</span>
         <h3>Spellforge</h3>
-        <div class="sub"><span>Particle FX · Shaders</span><span>Niagara · Houdini</span></div>
-        <div class="open">↗</div>
-      </article>
+        <div class="sub"><span>Particle FX · Shaders</span><span>Niagara · Houdini</span></div>      </article>
     </div>
   </div>
 </section>
@@ -867,9 +839,9 @@ footer{ border-top:1px solid var(--line); padding:80px 0 40px; }
   <div class="wrap">
     <div class="stat-grid">
       <div class="stat reveal"><div class="num" data-count="12">0</div><div class="lab">Years in motion</div></div>
-      <div class="stat reveal d1"><div class="num" data-count="480"></div><div class="num-u" style="display:none"></div><div class="lab">Projects shipped</div></div>
+      <div class="stat reveal d1"><div class="num"><span data-count="480">0</span><span class="u">+</span></div><div class="lab">Projects shipped</div></div>
       <div class="stat reveal d2"><div class="num"><span data-count="2400000" data-format="m">0</span></div><div class="lab">Frames rendered</div></div>
-      <div class="stat reveal d3"><div class="num"><span data-count="90"></span><span class="u">+</span></div><div class="lab">Brands &amp; studios</div></div>
+      <div class="stat reveal d3"><div class="num"><span data-count="90">0</span><span class="u">+</span></div><div class="lab">Brands &amp; studios</div></div>
     </div>
   </div>
 </section>
@@ -962,12 +934,11 @@ footer{ border-top:1px solid var(--line); padding:80px 0 40px; }
         </div>
         <div class="foot-col">
           <h4>Connect</h4>
-          <a href="https://www.instagram.com/festulentus?igsh=MXJqYXpiYWFrdmk4aA==" target="_blank" rel="noopener">Instagram</a><a href="#">Behance</a><a href="#">Vimeo</a><a href="#">LinkedIn</a>
+          <a href="https://www.instagram.com/festulentus?igsh=MXJqYXpiYWFrdmk4aA==" target="_blank" rel="noopener">Instagram</a>
         </div>
         <div class="foot-col">
           <h4>Contact</h4>
           <a href="mailto:festulentus@gmail.com">festulentus@gmail.com</a>
-          <a href="#">+1 (000) 000-0000</a>
         </div>
       </div>
     </div>
@@ -1038,13 +1009,12 @@ const cio=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(!e.isIntersecting) return;
     const el=e.target, target=+el.dataset.count, mode=el.dataset.format;
-    const suffix = (target===480)?'+':'';
     let start=null, dur=1700;
     function tick(t){
       if(!start) start=t;
       const p=Math.min((t-start)/dur,1);
       const eased=1-Math.pow(1-p,3);
-      el.textContent=fmt(Math.floor(target*eased),mode)+(p===1?suffix:'');
+      el.textContent=fmt(Math.floor(target*eased),mode);
       if(p<1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
