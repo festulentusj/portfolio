@@ -10,6 +10,7 @@ simulated CG cinematics.
 
 ## Features
 - Chromatic-aberration "CHROMA" concept (RGB channel split motif)
+- "What we do" — 12 animation disciplines, each tile self-demonstrating as a live CSS loop
 - Capability Spectrum — a four-tier complexity ladder (Entry → Craft → Advanced → Complex)
 - Custom cursor, scroll reveals, animated counters, magnetic buttons, grain overlay
 - Contact form wired to FormSubmit (delivers to festulentus@gmail.com)
